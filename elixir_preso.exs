@@ -1,8 +1,31 @@
+
+
+
+
+
 # So anyone used Elixir?
 
 
 
+
+
+
+
+
+
+
+
 # Let's start with a story...
+
+
+
+
+
+
+
+
+
+
 
 
 # ???
@@ -12,13 +35,44 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 # Erlang VM (scalable, distributed, fast)
 # (WhatsApp 2M connections/node, WoW, FB Chat)
 # Actor model
 # Distribution across nodes
 
 
+
+
+
+
+
+
+
+
+
+
 # Functional, but not so pure it...
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -28,8 +82,31 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 # Created by José Valim circa 2012. 
 # Former Rails Core Team member.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -39,15 +116,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 # Install
 [mac: "brew install elixir", windows_choclatey: "cinst elixir", windows_installer: "Click next, next, ..., finish"]
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 # Let's get started on the language...
 
 
-# Functional rather than OO ( data separate to functions )
+
+
+
+
+
+
+
+
+
+
+
+# Functional rather than OO 
+# ( data separate to functions )
 # Modules rather than classes
 
 IO.puts "hello world"
@@ -56,9 +167,33 @@ String.length("hello")
 
 
 
-# Kernel module is imported automatically and gives types, core functionality,
+
+
+
+
+
+
+
+
+
+
+
+
+# Kernel module is imported automatically 
+# and gives types, core functionality,
 hd [1,2,3]
 tl [1,2,3]
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -91,8 +226,11 @@ map = %{:a => 1, 2 => :b}
 
 # combos
 users = [
-  john: %{name: "John", age: 27, languages: ["Erlang", "Ruby", "Elixir"]},
-  mary: %{name: "Mary", age: 29, languages: ["Elixir", "F#", "Clojure"]}
+  john: %{name: "John", age: 27, 
+        languages: ["Ruby", "Elixir"]},
+
+  mary: %{name: "Mary", age: 29, 
+        languages: ["Elixir", "F#", "C#"]}
 ]
 
 # structs
@@ -351,7 +489,30 @@ Agent.get(:kv2, fn map -> Map.get(map, :hello) end)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Stateless.. ???????!
+
+
+
+
+
+
+
+
+
 
 
 
@@ -362,10 +523,27 @@ Agent.get(:kv2, fn map -> Map.get(map, :hello) end)
 
 
 
+
+
+
+
+
+
+
+
+
 # Non web app..
 # Registry for processes
 # Supervisor 
 # Routers for sharding, distributed nodes etc
+
+
+
+
+
+
+
+
 
 
 
@@ -379,16 +557,25 @@ mix help
 
 
 
+
+
+
+
+
+
+
+
+
 # PHOENIX
 
 # Install
 mix local.hex # pkg mgr
 mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
 
+
 # create app
 mix phoenix.new hello_phoenix --database mysql
 mix ecto.create # setup db
-
 
 
 # run server
@@ -405,6 +592,18 @@ page_controller_test.ex
 http://localhost:4000/
 http://localhost:4000/index_with_error
 http://localhost:4000/index_with_params?name=alt.net
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
