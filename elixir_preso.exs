@@ -287,6 +287,8 @@ Code.eval_quoted(expr)
 
 spawn fn -> 1 + 2 end
 
+for num <- 1..1000, do: spawn fn -> IO.puts "#{num * 2}" end
+
 spawn_link fn -> raise "oops" end
 
 Task.start fn -> raise "oops" end
@@ -343,7 +345,7 @@ Agent.update(:kv2, fn map -> Map.put(map, :hello, :world) end)
 Agent.get(:kv2, fn map -> Map.get(map, :hello) end)
 
 
-# Upgrade to GenServer - “Generic servers”, Agent + more control, async etc
+# GenServer - “Generic servers”, Agent + more control, async etc
 
 
 
@@ -379,12 +381,100 @@ mix help
 
 # PHOENIX
 
+# Install
+mix local.hex # pkg mgr
+mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
+
+# create app
+mix phoenix.new hello_phoenix --database mysql
+mix ecto.create # setup db
+
+
+
+# run server
+mix phoenix.server
+
+
+# files
+router.ex
+page_controller.ex
+index.html.eex
+index_with_params.html.eex
+page_controller_test.ex
+
+http://localhost:4000/
+http://localhost:4000/index_with_error
+http://localhost:4000/index_with_params?name=altnet
 
 
 
 ## Resources
+
+https://github.com/jcrisp/elixir_preso
+
 https://elixir-lang.org/getting-started/
+
 https://hexdocs.pm/phoenix/overview.html
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Pre-Setup
+CREATE USER 'phoenix'@'localhost';
+GRANT ALL PRIVILEGES ON hello_phoenix_dev.* to 'phoenix'@'localhost' 
 
