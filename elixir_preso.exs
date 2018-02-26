@@ -404,7 +404,7 @@ page_controller_test.ex
 
 http://localhost:4000/
 http://localhost:4000/index_with_error
-http://localhost:4000/index_with_params?name=altnet
+http://localhost:4000/index_with_params?name=alt.net
 
 
 

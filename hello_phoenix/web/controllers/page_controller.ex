@@ -16,4 +16,44 @@ defmodule HelloPhoenix.PageController do
     render conn, "index_with_params.html", name: dangerously_injected_name
   end
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  # ecto
+
+  def keyword_query do
+    query = from w in Weather,
+         where: w.rainfall > 0 or is_nil(w.rainfall),
+         select: w
+    Repo.all(query)
+  end
+
+  def pipe_query do
+    Weather
+    |> where(city: "Kraków")
+    |> order_by(:temperature)
+    |> limit(10)
+    |> Repo.all
+  end
+
 end
