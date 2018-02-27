@@ -213,7 +213,7 @@ my_atoms = {:a, :b, :c, :d}
 args = [{:a, 1}, {:b, 2}]
 
 query = from w in Weather,
-      where: w.prcp > 0,
+      where: w.rainfall > 0,
       where: w.temp < 20,
       select: w
 
@@ -437,6 +437,12 @@ send self, "hi"
 send self, "g'day"
 send self, "bye"
 
+flush
+
+send self, "hi"
+send self, "g'day"
+send self, "bye"
+
 receive do
   "hello" -> IO.write("hello it's me")
   "bye" -> IO.write("byeee")
@@ -464,6 +470,9 @@ end
 {:ok, pid} = KV.start_link
 
 send pid, {:put, :altnet, "is cool"}
+flush
+
+send pid, {:get, :altnet, self()}
 flush
 
 send pid, {:get, :altnet, self()}
